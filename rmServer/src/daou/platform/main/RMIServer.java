@@ -16,6 +16,6 @@ public class RMIServer {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 		RmiService service = context.getBean("rmiServiceImpl",RmiService.class);
-		System.out.println("Server Start!");
+		System.out.println("Server Start!!!!!");
 	}
 }
