@@ -15,4 +15,11 @@ public interface RmiService {
 	 * @return
 	 */
 	public String sendLogService(RmiLog log);
+	
+	/**
+	 * 클라이언트에서 설정한 값이 제대로 전달되는지 커넥트 테스트
+	 * @param message
+	 */
+	public void connectTest(String message);
+	
 }
