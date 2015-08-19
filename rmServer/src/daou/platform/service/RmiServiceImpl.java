@@ -3,7 +3,6 @@ package daou.platform.service;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 
 import daou.platform.model.RmiLog;
 
@@ -37,6 +36,14 @@ public class RmiServiceImpl implements RmiService{
 		}
 
 		return "OK";
+	}
+
+	@Override
+	public void connectTest(String message) {
+		
+		System.out.println("connect test!");
+		logger.info(message);
+		
 	}
 
 }
