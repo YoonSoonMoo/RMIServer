@@ -15,5 +15,5 @@
 		<property name="serviceName" value="rmiService" />
 		<property name="registryPort" value="1099" />
 	</bean>
-
+	
 </beans>
