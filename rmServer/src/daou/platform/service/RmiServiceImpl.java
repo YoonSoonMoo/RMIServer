@@ -8,7 +8,7 @@ import daou.platform.model.RmiLog;
 
 @Component
 public class RmiServiceImpl implements RmiService{
-
+	
 	/** 클라이언트의 로그를 취합하는 메인 로거  */
 	private static Log logger = LogFactory.getLog(RmiServiceImpl.class);
 	

@@ -23,6 +23,5 @@ public class RMIServer {
 		log.info("Log4j Server Start");
 		System.out.println("Server Start!!!!!");
 		
-		
 	}
 }

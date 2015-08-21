@@ -2,7 +2,7 @@ package daou.platform.model;
 
 import java.io.Serializable;
 
-import daou.platform.main.Const.LOG_LEVEL;
+import daou.platform.model.Const.LOG_LEVEL;
 
 /**
  * RMI용 로그

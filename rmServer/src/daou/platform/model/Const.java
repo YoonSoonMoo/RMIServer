@@ -1,4 +1,4 @@
-package daou.platform.main;
+package daou.platform.model;
 
 public class Const {
 
