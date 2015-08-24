@@ -4,6 +4,7 @@ public class Const {
 
 	/**
 	 * 로그의 레벨 정의
+	 * 
 	 * @author yoon
 	 */
 	public enum LOG_LEVEL {

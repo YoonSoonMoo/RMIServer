@@ -58,5 +58,4 @@ public class RmiLog implements Serializable{
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-	
 }

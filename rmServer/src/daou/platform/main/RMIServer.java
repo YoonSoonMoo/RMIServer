@@ -20,8 +20,7 @@ public class RMIServer {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 		RmiService service = context.getBean("rmiServiceImpl",RmiService.class);
-		log.info("Log4j Server Start");
+		log.info("Log4j Server Start!!");
 		System.out.println("Server Start!!!!!");
-		
 	}
 }

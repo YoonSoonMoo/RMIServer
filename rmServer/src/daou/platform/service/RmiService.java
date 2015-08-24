@@ -15,7 +15,7 @@ public interface RmiService extends Remote{
 	/**
 	 * 리모트서버로 로그를 전송한다.
 	 * 클라이언트의 모든 로그를 수집하고 로그의 상태에 따른 분기처리를 담당한다.
-	 * @return
+	 * @return 로그발송 결과
 	 */
 	public abstract String sendLogService(RmiLog log) throws RemoteException;
 	
