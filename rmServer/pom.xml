@@ -1,44 +1,44 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
 
-  <groupId>DtimesRMServer</groupId>
-  <artifactId>rmServer</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+<groupId>DtimesRMServer</groupId>
+<artifactId>rmServer</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+<packaging>jar</packaging>
 
-  <name>rmServer</name>
-  <url>http://maven.apache.org</url>
+<name>rmServer</name>
+<url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+<properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+</properties>
 
-  <profiles>
+<profiles>
 	<profile>
 		<id>dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<environment>dev</environment>
-			</properties>
-		</profile>
-		<profile>
-			<id>pro</id>
-			<properties>
-				<environment>pro</environment>
-			</properties>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>
+		<properties>
+			<environment>dev</environment>
+		</properties>
 	</profile>
-  </profiles>
+	<profile>
+		<id>pro</id>
+			<properties>
+			<environment>pro</environment>
+		</properties>
+	</profile>
+</profiles>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+<dependencies>
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>3.8.1</version>
+		<scope>test</scope>
+	</dependency>
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-context</artifactId>
@@ -59,47 +59,47 @@
 		<artifactId>mybatis-spring</artifactId>
 		<version>1.2.3</version>
 	</dependency>
-	
-  </dependencies>
-  
-  <build>
-  		<sourceDirectory>src</sourceDirectory>
-  		<scriptSourceDirectory>src</scriptSourceDirectory>
-  		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-			<resource>
-				<directory>profiles/${environment}</directory>
-			</resource>
-		</resources>
-  
-        <plugins>
-			  <plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-jar-plugin</artifactId>
-                <version>2.6</version>
-			    <configuration>
-			      <archive>
-			        <manifest>
-			          <packageName>daou.platform.main</packageName>
-			          <mainClass>daou.platform.main.RMIServer</mainClass>
-			          <addClasspath>true</addClasspath>
-			        </manifest>
-			      </archive>
-			    </configuration>
-			  </plugin>
-			  
-			  <plugin>
-			    <groupId>org.codehaus.mojo</groupId>
-			    <artifactId>rmic-maven-plugin</artifactId>
-			    <version>1.2.1</version>
-			    <configuration>
-			      	  <outputDirectory>${project.build.outputDirectory}</outputDirectory>
-			    </configuration>
-			   </plugin>
-         </plugins>
-  </build> 
-  
+</dependencies>
+
+<build>
+	<sourceDirectory>src</sourceDirectory>
+	<scriptSourceDirectory>src</scriptSourceDirectory>
+
+	<resources>
+		<resource>
+			<directory>src/main/resources</directory>
+			<filtering>true</filtering>
+		</resource>
+		<resource>
+		<directory>profiles/${environment}</directory>
+		</resource>
+	</resources>
+
+	<plugins>
+		<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-jar-plugin</artifactId>
+		<version>2.6</version>
+			<configuration>
+				<archive>
+					<manifest>
+						<packageName>daou.platform.main</packageName>
+						<mainClass>daou.platform.main.RMIServer</mainClass>
+						<addClasspath>true</addClasspath>
+					</manifest>
+				</archive>
+			</configuration>
+		</plugin>
+
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>rmic-maven-plugin</artifactId>
+			<version>1.2.1</version>
+			<configuration>
+				<outputDirectory>${project.build.outputDirectory}</outputDirectory>
+			</configuration>
+		</plugin>
+	</plugins>
+</build> 
+
 </project>
