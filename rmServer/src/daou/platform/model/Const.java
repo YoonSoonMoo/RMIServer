@@ -16,4 +16,16 @@ public class Const {
 		ERROR;
 	}
 	
+	
+	/**
+	 * 처리 결과값
+	 * @author daou
+	 *
+	 */
+	public enum RESULT {
+		// 성공
+		SUCCESS,
+		// 실패
+		FAIL;
+	}
 }

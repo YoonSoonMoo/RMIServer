@@ -9,18 +9,27 @@ import daou.platform.service.RmiService;
 
 /**
  * RMI서버 메인 클래스
- * @author daou
+ * @author yoonsm
  *
  */
 public class RMIServer {
 
 	private static Log log = LogFactory.getLog(RMIServer.class);
+	private static ApplicationContext context;
+	@SuppressWarnings("unused")
+	private static RmiService service;
 	
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
-		RmiService service = context.getBean("rmiServiceImpl",RmiService.class);
-		log.info("Log4j Server Start!!");
+		String [] configLocation = {
+				"spring-config.xml"
+				,"dataAccessContext.xml"
+		};
+		
+		context = new ClassPathXmlApplicationContext(configLocation);
+		service = context.getBean("rmiServiceImpl",RmiService.class);
+		
+		log.info("RMI Server Start!");
 		System.out.println("Server Start!!!!!");
 	}
 }

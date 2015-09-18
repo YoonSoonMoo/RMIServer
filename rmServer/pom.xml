@@ -13,6 +13,7 @@
 	<properties>
 		<jdk.version>1.6</jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<rmi.stub.folder>D:\Dev\WorkspaceDtimes\rmClient\target\classes</rmi.stub.folder>
 	</properties>
 	
 	<repositories>
@@ -39,12 +40,10 @@
 			<id>dev</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
-				
 			</activation>
 			<properties>
 				<environment>dev</environment>
 			</properties>
-			
 		</profile>
 		<profile>
 			<id>pro</id>
@@ -116,28 +115,28 @@
 		    <artifactId>ojdbc14</artifactId>
 		    <version>10.2.0.4.0</version>
 		</dependency>
-		
 	</dependencies>
 	
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<scriptSourceDirectory>src</scriptSourceDirectory>
-	
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 			</resource>
 			<resource>
-			<directory>profiles/${environment}</directory>
+				<directory>profiles/${environment}</directory>
 			</resource>
 		</resources>
 	
 		<plugins>
+		
+			<!-- Main , MANIFEST 설정 package 설정시 동작 -->		
 			<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-jar-plugin</artifactId>
-			<version>2.6</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
 				<configuration>
 					<archive>
 						<manifest>
@@ -149,15 +148,26 @@
 				</configuration>
 			</plugin>
 	
+			<!-- RMI Stub 를 만드는 플러그 인 rmic:rmic -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>rmic-maven-plugin</artifactId>
 				<version>1.2.1</version>
+				<!-- 팩키지 페이즈에 RMI stub파일을 생성한다. -->
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>rmic</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
-					<outputDirectory>${project.build.outputDirectory}</outputDirectory>
+					<outputDirectory>${rmi.stub.folder}</outputDirectory>
 				</configuration>
 			</plugin>
 			
+			<!-- Stand alone Jar 생성 assembly:single  -->
 			<plugin>
 	            <artifactId>maven-assembly-plugin</artifactId>
 	            <configuration>

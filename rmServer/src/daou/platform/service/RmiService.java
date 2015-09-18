@@ -23,6 +23,6 @@ public interface RmiService extends Remote{
 	 * 클라이언트에서 설정한 값이 제대로 전달되는지 커넥트 테스트
 	 * @param message
 	 */
-	public abstract void connectTest(String message) throws RemoteException;;
+	public abstract String connectTest(String message) throws RemoteException;;
 	
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="RMI_SERVICE">
+
+	<!-- 가변 테이블에 대량 데이타를 등록할때 쓰임 -->
+	<insert id="insertExcelDataInfo" parameterType="map">
+		INSERT INTO ${tableName} (
+					${columnName}
+				) VALUES (
+					${values}
+				)
+	 </insert>
+
+</mapper>
