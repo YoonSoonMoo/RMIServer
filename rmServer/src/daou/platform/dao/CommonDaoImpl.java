@@ -11,7 +11,8 @@ import org.springframework.dao.DataAccessException;
 
 /**
  * 공통 Dao Implement
- * @author yoonsm
+ * @author : redkarisma
+ * @modify : yoonsm
  * @since 2015. 1. 2.
  * @version 1.1
  * @modify

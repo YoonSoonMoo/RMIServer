@@ -9,6 +9,8 @@
 
 	<context:component-scan base-package="daou.platform.service"></context:component-scan>
 
+    <context:property-placeholder location="jdbc.properties" />
+
 	<bean id="rmiServer" class="org.springframework.remoting.rmi.RmiServiceExporter">
 		<property name="service" ref="rmiServiceImpl" />
 		<property name="serviceInterface" value="daou.platform.service.RmiService" />

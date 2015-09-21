@@ -6,12 +6,73 @@
 <mapper namespace="RMI_SERVICE">
 
 	<!-- 가변 테이블에 대량 데이타를 등록할때 쓰임 -->
-	<insert id="insertExcelDataInfo" parameterType="map">
+	<insert id="insertPushInfo" parameterType="map">
 		INSERT INTO ${tableName} (
 					${columnName}
 				) VALUES (
 					${values}
 				)
 	 </insert>
+
+	<insert id="insertMessage" parameterType="message" >
+		INSERT INTO TBL_SUBMIT_QUEUE (
+			 CMP_MSG_ID
+			,CMP_MSG_GROUP_ID
+			,USR_ID
+			,SMS_GB
+			,USED_CD
+			,RESERVED_FG
+			,RESERVED_DTTM
+			,SAVED_FG
+			,RCV_PHN_ID
+			,SND_PHN_ID
+			,ASSIGN_CD
+			,SND_MSG
+			,CALLBACK_URL
+			,CONTENT_CNT
+			,CONTENT_MIME_TYPE
+			,CONTENT_PATH
+			,SMS_STATUS
+			,MSG_TITLE
+			,ETC_CHAR_1
+			,ETC_CHAR_2
+			,ETC_CHAR_3
+			,ETC_CHAR_4
+			,ETC_INT_5
+			,ETC_INT_6
+			,ASP_ID
+		) VALUES (
+			 TBL_SUBMIT_SEQ.NEXTVAL
+			,#{cmpMsgGropuId}
+			,#{usrId}
+			,#{smsGb}
+			,#{usedCd}
+			,#{reservedFg}
+			<if test="reservedDttm != null" >
+			, #{reservedDttm}
+			</if>
+			<if test="reservedDttm == null" >
+			, to_char(SYSDATE, 'YYYYMMDDHH24MISS')
+			</if>
+			,#{savedFg}
+			,#{rcvPhnId}
+			,#{sndPhnId}
+			,#{assignCd}
+			,#{sndMsg}
+			,#{callbackUrl}
+			,#{contentCnt}
+			,#{contectMimeType}
+			,#{contentPath}
+			,#{smsStatus}
+			,#{msgTitle}
+			,#{etcChar1}
+			,#{etcChar2}
+			,#{etcChar3}
+			,#{etcChar4}
+			,#{etcInt5}
+			,#{etcInt6}
+			,#{aspId}		
+		)
+	</insert>
 
 </mapper>

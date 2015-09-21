@@ -23,7 +23,7 @@ public class RMIServer {
 		
 		String [] configLocation = {
 				"spring-config.xml"
-				,"dataAccessContext.xml"
+				, "dataAccessContext.xml"
 		};
 		
 		context = new ClassPathXmlApplicationContext(configLocation);
