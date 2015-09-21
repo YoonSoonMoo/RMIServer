@@ -34,7 +34,7 @@
 	         <url>http://mesir.googlecode.com/svn/trunk/mavenrepo</url>
 	    </repository> 
 	</repositories>
-	
+
 	<profiles>
 		<profile>
 			<id>dev</id>
@@ -47,7 +47,7 @@
 		</profile>
 		<profile>
 			<id>pro</id>
-				<properties>
+			<properties>
 				<environment>pro</environment>
 			</properties>
 		</profile>
@@ -85,11 +85,6 @@
 			<artifactId>commons-lang</artifactId>
 			<version>2.6</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-dao</artifactId>
-			<version>2.0.8</version>
-		</dependency>
 		<dependency> 
 		   <groupId>org.springframework.security</groupId>
 		   <artifactId>spring-security-config</artifactId>
@@ -115,11 +110,18 @@
 		    <artifactId>ojdbc14</artifactId>
 		    <version>10.2.0.4.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-dao</artifactId>
+			<version>2.0.8</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<scriptSourceDirectory>src</scriptSourceDirectory>
+	    <outputDirectory>${project.basedir}/target/classes</outputDirectory>
+	    
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -127,6 +129,7 @@
 			</resource>
 			<resource>
 				<directory>profiles/${environment}</directory>
+				<filtering>true</filtering>
 			</resource>
 		</resources>
 	
@@ -174,6 +177,7 @@
 	                <archive>
 	                    <manifest>
 	                        <mainClass>daou.platform.main.RMIServer</mainClass>
+	                        <addClasspath>true</addClasspath>
 	                    </manifest>
 	                </archive>
 	                <descriptorRefs>
@@ -181,7 +185,7 @@
 	                </descriptorRefs>
 	            </configuration>
         	</plugin>
-			
-		</plugins>
+        	
+   		</plugins>   	
 	</build> 
 </project>
